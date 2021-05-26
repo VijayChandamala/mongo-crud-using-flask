@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Mongo-CRD</title>
+  <link rel="shortcut icon" type="image/jpg" href="http://mongodb-js.github.io/leaf/mongodb-leaf_512x512.png"/>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script>
+    window.setTimeout(function() {
+        $(".alert").fadeTo(500, 0).slideUp(500, function(){
+            $(this).remove();
+        });
+    }, 2000);
+  </script>
+  <script>
+        $(document).ready(function() {
+
+        var rowcount = 1
+        var addrow = document.getElementById('addrow');
+        var div = document.getElementById('custompairs');
+        var rc = document.getElementById('rowCount');
+
+        addrow.addEventListener('click', function () {
+        var row = document.createElement('div')
+        row.innerHTML = "<div id='"+rowcount+"' class='form-group'><div class='row'><div class='col'><input placeholder='key' name='key-"+rowcount+"' type='text' class='form-control' required/></div> : <div class='col'><input placeholder='value' name='value-"+rowcount+"' type='text' class='form-control' required/></div><input class='btn btn-outline-secondary' value=delete type=button onclick=delDiv("+rowcount+")></div></div>";
+        div.appendChild(row);
+        rowcount = rowcount+1
+        rc.value = rowcount
+        });
+        });
+  </script>
+  <script>
+
+        function delDiv(divid) {
+          document.getElementById(divid).remove();
+
+        }
+  </script>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="http://localhost:5000">Mongo-CRD</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="http://localhost:5000"> Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link active" href="http://localhost:5000/aep"> Add-docs </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="http://localhost:5000/vep"> View-docs </a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<div class="container contact-form">
+  <div class="contact-image">
+    <img src="https://images.ctfassets.net/wqwerb01q4v1/1OjsXzuqFttb5FJSPifw6d/851493951d70729c4d601edc4d70fd5c/MongoDB-logo-color.png" alt="mongo-logo"/>
+  </div>
+  <br>
+  <br>
+  <div class="card">
+  <form action="/aep" method="post">
+    <div class="card-header container-fluid">
+      <div class="row">
+        <div class="col-md-10">
+        <h3>Add-docs</h3>
+        </div>
+      <div class="col-md-2 float-right"> <button type="button" id="addrow" class="btn btn-outline-primary">Add Key Value pair</button> </div>
+    </div>
+    </div>
+    <div class="card-body">
+    <div class="row">
+      <div class="col-md-6">
+
+        <div id='0' class='form-group'><div class='row'><div class='col'><input placeholder='key' name='key-0' type='text' class='form-control' required/></div> : <div class='col'><input placeholder='value' name='value-0' type='text' class='form-control' required/></div><input class='btn btn-outline-secondary' value=delete type=button onclick=delDiv(0)></div></div>
+        <input id="rowCount" type='hidden' value=1 name='rowcount'>
+        <div id="custompairs">
+        </div>
+
+        <div class="form-group">
+          <button type="submit" class="btn btn-success" id="mongo-submit">Add to mongo</button>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="alert alert-success alert-dismissible fade show">
+          {% if response == "Add more key-value pairs by clicking here" %}
+          <h6 style="text-align:center"> {{ response }} &#9757;&#65039; </h6>
+          {% else %}
+          <h6 style="text-align:center">{{ response }} </h6>
+          {% endif %}
+        </div>
+        <div class="form-group">
+          <div class="col-xs-13">
+            <div class="well">
+              <p>Unlike conventional forms this form has custom keys option, so you can add as many fields as you want. Head over to <a href="http://localhost:5000/vep">View-docs</a> to see docs that you added from here.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+  </form>
+  </div>
+</div>
+
+</body>
+</html>
+

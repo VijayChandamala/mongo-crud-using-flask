@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Mongo-CRD</title>
+  <link rel="shortcut icon" type="image/jpg" href="http://mongodb-js.github.io/leaf/mongodb-leaf_512x512.png"/>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <style>
+    .card{
+  width: auto;
+  height: 300px;
+  margin: 30px auto;
+}
+.scrollable{
+  overflow-y: auto;
+  max-height: 205px;
+}
+  </style>
+  <script>
+    $(document).ready(function() {
+    response = JSON.stringify(response, undefined, '\n');
+    });
+  </script>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="http://localhost:5000">Mongo-CRD</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="http://localhost:5000"> Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="http://localhost:5000/aep">Add-docs</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link active" href="http://localhost:5000/vep">View-docs</a>
+      </li>
+    </ul>
+    <form class="navbar-form navbar-left">
+      <div>
+        <strong>Ctrl+f to search</strong>
+      </div>
+    </form>
+  </div>
+</nav>
+
+
+<div class="container contact-form">
+  <div class="contact-image">
+    <img src="https://images.ctfassets.net/wqwerb01q4v1/1OjsXzuqFttb5FJSPifw6d/851493951d70729c4d601edc4d70fd5c/MongoDB-logo-color.png" alt="mongo-logo"/>
+  </div>
+
+
+      <div class="card">
+        <div class="card-header">
+          <strong>Docs in mongo</strong>
+        </div>
+        <div class="card-body">
+        <div class="scrollable">
+          {% if response == "Nothing found in mongo! Head over to Add-docs" %}
+          <pre><code><strong>{{response}}</strong></code></pre>
+          {% else %}
+          <ul class="list-group">
+          {% for doc in response %}
+          <li class="list-group-item"> <pre><code><strong>{{ doc }}</strong></code></pre>
+            <form class="form-inline" action="/dep" method=post>
+              <button type=submit class="btn btn-outline-danger" value=Delete>delete</button>
+              <input type=hidden value="{{ doc._id }}" name="patternid" />
+            </form>
+            {% endfor %}
+          </li>
+          </ul>
+          {% endif %}
+        </div>
+        </div>
+        </div>
+</div>
+
+</body>
+</html>
+

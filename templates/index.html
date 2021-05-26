@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+  <title>Mongo-CRD</title>
+  <link rel="shortcut icon" type="image/jpg" href="http://mongodb-js.github.io/leaf/mongodb-leaf_512x512.png"/>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="http://localhost:5000">Mongo-CRD</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link active" href="http://localhost:5000">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="http://localhost:5000/aep">Add-docs</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="http://localhost:5000/vep">View-docs</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<div class="container contact-form">
+  <div class="contact-image">
+    <img src="https://images.ctfassets.net/wqwerb01q4v1/1OjsXzuqFttb5FJSPifw6d/851493951d70729c4d601edc4d70fd5c/MongoDB-logo-color.png" alt="mongo-logo"/>
+  </div>
+  <br>
+  <br>
+  <div class="col-md-6">
+  <div class="well">
+    <p>
+      <strong>Documents in mongodb : {{response}}</strong>
+    </p>
+    <br>
+    <p>This is a simple CRUD app, well, it's missing Update as of now, so it's pretty much CRD( Create, Read, Delete ). Head over to <a href="http://localhost:5000/aep">Add-docs</a> to add documents to mongodb and <a href="http://localhost:5000/vep">View-docs</a> to see existing mongodb documents.</p>
+  </div>
+  </div>
+</div>
+
+</body>
+</html>
+

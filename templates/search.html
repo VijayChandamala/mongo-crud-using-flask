@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Mongo-man</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+<!--  <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">-->
+<!--  <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>-->
+<!--  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>-->
+<!--  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">-->
+<!--  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>-->
+<!--  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>-->
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+  <style>
+    .card{
+  width: 54%;
+  height: 300px;
+  margin: 30px auto;
+}
+.scrollable{
+  overflow-y: auto;
+  max-height: 200px;
+}
+  </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="http://localhost:5000">Mongo-man</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="http://localhost:5000"> Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="http://localhost:5000/aep">Add-docs</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="http://localhost:5000/vep">View-docs</a>
+      </li>
+    </ul>
+    <form class="navbar-form navbar-left" action="/search">
+      <div class="input-group">
+        <input type="text" class="form-control" placeholder="Search" name="search_text">
+      </div>
+    </form>
+  </div>
+</nav>
+
+
+<div class="container contact-form">
+  <div class="contact-image">
+    <img src="https://kangaroot.net/sites/default/files/styles/large/public/field/image/mongologo.png?itok=kYrVeixk" alt="rocket_contact"/>
+  </div>
+
+
+      <div class="card">
+        <div class="card-header">
+          <h2>Search Results</h2>
+        </div>
+        <div class="card-body">
+        <div class="scrollable">
+          <pre><code><strong>{{response}}</strong></code></pre>
+        </div>
+        </div>
+        </div>
+</div>
+
+
+
+<div id='div-"+rowcount+"' class='form-group'><div class='row'><div class='col'><input name='key-"+rowcount+"' type='text' class='form-control'></div><div class='col'><input name='value-"+rowcount+"' type='text' class='form-control'></div><div class=col><button class='btn btn-danger' onClick='delDiv(\"div-"+rowcount+"\")'><i class="fa fa-trash"></i></button></div></div></div>
+
+</body>
+</html>
+
