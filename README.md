@@ -15,7 +15,7 @@ cd mongo-crud-using-flask
 chmod +x set-up.sh
 ./setup.sh
 ```
-If it worked fine, you didn't even had to open the browser, right ?
+If it worked fine, you didn't even have to open the browser, right ?
 
 Alright! I'll post a medium link with the tutorial here soon if possible. See you!
 
